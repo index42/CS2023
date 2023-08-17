@@ -26,6 +26,9 @@ namespace CS2023
             Console.WriteLine(a == b);  // Outputs "True"
             b.Add(3);
             Console.WriteLine(a == b);  // Outputs "False"
+
+            foreach (var item in b)
+                Console.WriteLine(item);
         }
     }
     public class MyList<T>
@@ -118,6 +121,17 @@ namespace CS2023
                 result += item?.ToString() + ",";
             }
             return result.Trim(',');
+        }
+        public IEnumerator<T> GetEnumerator()
+        {
+            if (_count == 0)
+                yield break;
+            int i = 0;
+            while (i < _count)
+            {
+                yield return _items[i];
+                i++;
+            }
         }
     }
     class EventExample

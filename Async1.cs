@@ -2,11 +2,12 @@ namespace CS2023
 {
     static class Async1Test
     {
-        public static async Task Test()
+        public static void Test()
         {
+
             Async1 async1 = new Async1();
-            Console.WriteLine(await async1.RetrieveDocsHomePage());
-            Console.WriteLine("test2");
+            Async1.AsyncConsoleWork().GetAwaiter().GetResult();
+            //Console.WriteLine(await async1.RetrieveDocsHomePage());
         }
 
     }
@@ -20,6 +21,13 @@ namespace CS2023
             Thread.Sleep(5000);
             Console.WriteLine($"{nameof(RetrieveDocsHomePage)}: Finished downloading.");
             return content.Length;
+        }
+        public static async Task<int> AsyncConsoleWork()
+        {
+            var client = new HttpClient();
+            await client.GetByteArrayAsync("https://learn.microsoft.com/");
+            // Main body here
+            return 0;
         }
     }
 
