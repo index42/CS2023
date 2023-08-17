@@ -7,11 +7,11 @@ class Hello
 {
     static void Main(string[] args)
     {
-        Pattern1Test.Test();
+        Deconstruct1Test.Test();
     }
     // static async Task Main()
     // {
-    //     await Async1Test.Test();
+    //     await Pattern1Test.Test();
     // }
 }
 
